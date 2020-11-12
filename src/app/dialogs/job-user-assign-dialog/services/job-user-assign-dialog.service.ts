@@ -9,8 +9,8 @@ import { UserModel } from '../../../models/presentation-layer/user.model';
 export class JobUserAssignDialogService extends AsyncDialog<JobUserAssignDialogComponent, JobUserAssignDialogDataModel, UserModel> {
 
   async open(data: JobUserAssignDialogDataModel): Promise<MatDialogRef<JobUserAssignDialogComponent, UserModel>> {
-    await import('../job-user-assign-dialog.module');
+    const {JobUserAssignDialogModule} = await import('../job-user-assign-dialog.module');
 
-    return this.matDialog.open(JobUserAssignDialogComponent, {data});
+    return this.matDialog.open(JobUserAssignDialogModule.getComponent(), {data},);
   }
 }

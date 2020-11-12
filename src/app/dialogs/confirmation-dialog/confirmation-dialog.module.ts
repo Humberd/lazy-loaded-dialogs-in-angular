@@ -12,4 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
   ],
 })
-export class ConfirmationDialogModule { }
+export class ConfirmationDialogModule {
+  static getComponent(): typeof ConfirmationDialogComponent {
+    return ConfirmationDialogComponent;
+  }
+}

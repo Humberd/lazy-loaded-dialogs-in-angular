@@ -18,4 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
   ],
 })
-export class JobUserAssignDialogModule { }
+export class JobUserAssignDialogModule {
+  static getComponent(): typeof JobUserAssignDialogComponent {
+    return JobUserAssignDialogComponent;
+  }
+}
