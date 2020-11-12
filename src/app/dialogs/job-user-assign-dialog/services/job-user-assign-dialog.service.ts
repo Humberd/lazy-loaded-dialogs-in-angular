@@ -11,6 +11,6 @@ export class JobUserAssignDialogService extends AsyncDialog<JobUserAssignDialogC
   async open(data: JobUserAssignDialogDataModel): Promise<MatDialogRef<JobUserAssignDialogComponent, UserModel>> {
     const {JobUserAssignDialogModule} = await import('../job-user-assign-dialog.module');
 
-    return this.matDialog.open(JobUserAssignDialogModule.getComponent(), {data},);
+    return this.matDialog.open(JobUserAssignDialogModule.getComponent(), {data});
   }
 }
