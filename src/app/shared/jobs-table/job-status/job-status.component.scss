@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 8px;
+
+  .new {
+    color: #5b5b5b;
+  }
+
+  .in_progress {
+    color: #3535f6;
+  }
+
+  .done {
+    color: #0d660d;
+  }
+}

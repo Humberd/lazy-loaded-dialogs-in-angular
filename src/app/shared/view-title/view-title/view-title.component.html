@@ -1,0 +1,12 @@
+<h1 class="title-header">
+  <a
+    *ngIf="hasBackButton"
+    mat-icon-button
+    routerLink="/jobs"
+    title="Back"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+  <span>{{viewTitle}}</span>
+</h1>
+<h3>{{subtitle}}</h3>

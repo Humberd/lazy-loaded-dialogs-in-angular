@@ -1,0 +1,6 @@
+<app-view-title
+  [viewTitle]="'Jobs for ' + (currentUser$ | async)?.name"
+  [subtitle]="'List of jobs assigned to ' + (currentUser$ | async)?.name + '. You cannot reassign user here.'"
+  [hasBackButton]="true"
+></app-view-title>
+<app-jobs-table  [jobs]="jobs$ | async" [actions]="actions"></app-jobs-table>

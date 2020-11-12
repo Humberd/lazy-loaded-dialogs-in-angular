@@ -1,0 +1,17 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <ng-container *ngFor="let actionDefinition of actions">
+    <button
+      *ngIf="!actionDefinition.isHidden(actor)"
+      mat-menu-item
+      (click)="actionDefinition.action(actor)"
+    >
+      <mat-icon>{{actionDefinition.icon}}</mat-icon>
+      <span>{{actionDefinition.name}}</span>
+    </button>
+  </ng-container>
+
+</mat-menu>

@@ -1,0 +1,6 @@
+<div class="icon" [ngSwitch]="status">
+  <mat-icon *ngSwitchCase="JobStatusEnum.NEW" class="new">fiber_new</mat-icon>
+  <mat-icon *ngSwitchCase="JobStatusEnum.IN_PROGRESS" class="in_progress">hourglass_full</mat-icon>
+  <mat-icon *ngSwitchCase="JobStatusEnum.DONE" class="done">check_circle</mat-icon>
+</div>
+{{status | uppercase}}
