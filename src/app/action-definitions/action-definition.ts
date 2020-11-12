@@ -1,8 +1,9 @@
 import { ContextMenuActionModel } from '../shared/context-menu/models/context-menu-action.model';
 import { ActionDefinitionContextMenu } from './action-definition-context-menu';
 import { BuildConfig } from './build-config';
-import { isObservable, Observable } from 'rxjs';
+import { isObservable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { ActionResult } from './action-result';
 
 export abstract class ActionDefinition<Params> {
   build<Actor>(config: BuildConfig<Actor, Params>): ContextMenuActionModel<Actor> {
@@ -12,8 +13,8 @@ export abstract class ActionDefinition<Params> {
       name: menu.name,
       icon: menu.icon,
       isHidden: actor => config.isHidden?.(actor),
-      action: actor => {
-        const result = this.invoke(config.resolveParams(actor));
+      action: async actor => {
+        const result = await this.invoke(config.resolveParams(actor));
         if (isObservable(result)) {
           result
             .pipe(take(1))
@@ -25,7 +26,7 @@ export abstract class ActionDefinition<Params> {
     };
   }
 
-  abstract invoke(params: Params): void | Observable<void>;
+  abstract invoke(params: Params): ActionResult;
 
   protected abstract getMenu(): ActionDefinitionContextMenu;
 }
